@@ -1,0 +1,56 @@
+<!-- https://medium.com/dailyjs/i-never-understood-javascript-closures-9663703368e8 -->
+<script type="text/javascript">
+	
+	/* A very basic example */
+	/*let a = 3;
+	function addTwo(x) {
+		let ret = x + 2;
+		return ret;
+	}
+
+	let b = addTwo(a);
+	console.log(b);*/
+
+	/* Lexical scope. */
+	/*
+		Function has access to variables that are defined in its calling context. 
+		The formal name of this phenomenon is the lexical scope.
+	*/
+
+
+	let val1 = 2;
+	function multiplyThis(n) {
+		let ret = n * val1;
+		return ret;
+	}
+	let multiplied = multiplyThis(6);
+	console.log('example of scope:', multiplied);
+
+	/* test */
+	var one = 1;
+	var two = 2;
+	var three = 3;
+
+	var test = function(a) {
+		return function(b) {
+			console.log(a, b);
+		}
+	}
+
+	var x = test(one);
+	one = three;
+	console.log("One: ", one);
+	x(two);
+
+
+
+	/* arrow function closure */
+
+
+	let adder = x => y => x + y;
+	let addToTwo = adder(2);
+	let five = addToTwo(3);
+	console.log('Five: ', five);
+
+
+</script>

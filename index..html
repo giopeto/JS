@@ -1,0 +1,86 @@
+<script type="text/javascript">
+	
+/* 1 */
+
+/*function asd() {
+	let x = 1;
+	console.log(x);
+	aaa();
+
+	function aaa() {
+		console.log(x);
+	}
+}
+
+asd();*/
+
+/* 2 */
+
+/*var addSix = createBase(6);
+addSix(10); // returns 16
+addSix(21); // returns 27
+
+console.log(addSix(21));
+
+
+function createBase(num) {
+	return function(innerNum) {
+		return num + innerNum;
+	}
+}*/
+
+/* 3 */
+for (var i = 0; i < 3; i++) {
+  setTimeout(function(i) {
+  	return function() {
+  		 console.log(i);
+  		} 
+  }(i), 1000 + i);
+}
+
+const arr = [10, 12, 15, 21];
+for (var i = 0; i < arr.length; i++) {
+  // pass in the variable i so that each function 
+  // has access to the correct index
+  setTimeout(function(i_local) {
+    return function() {
+      console.log('The index of this number is: ' + i_local);
+    }
+  }(i), 3000);
+}
+
+/* 4 */
+(function test(x) {
+	console.log("X: ", x);
+})(100);
+
+
+(function(x){console.log("X: ", x);})(1);
+
+
+call1();
+call2();
+
+function call1(){};
+var call2 = function (){console.log('aaaaa')};
+
+
+
+
+console.log("TEST");
+
+function a() {
+	x = 1;
+	return function() {
+		console.log("Result from B: ", x);
+	}
+}
+
+
+
+var b = a();
+b();
+
+
+
+</script>
