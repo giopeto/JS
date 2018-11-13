@@ -1,0 +1,29 @@
+<html>
+</html>
+
+
+
+<script type="text/javascript">
+/*
+Consider the following code snippet:
+
+for (var i = 0; i < 5; i++) {
+  var btn = document.createElement('button');
+  btn.appendChild(document.createTextNode('Button ' + i));
+  btn.addEventListener('click', function(){ console.log(i); });
+  document.body.appendChild(btn);
+}
+*/
+	for (var i = 0; i < 5; i++) {
+		var btn = document.createElement('button');
+		btn.appendChild(document.createTextNode('Button ' + i));
+		
+		//addEvent(btn, i); // First approach
+		(i => btn.addEventListener('click', function(){ console.log(i); }))(i); // Second approach
+		document.body.appendChild(btn);
+	}
+
+	function addEvent(btn, i) {
+		btn.addEventListener('click', function(){ console.log(i); });
+	}
+</script>

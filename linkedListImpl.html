@@ -1,0 +1,105 @@
+<script type="text/javascript">
+	
+	class LinkedList {
+		
+		constructor(head = null, tail = null) {
+			this.head = head;
+			this.tail = tail;
+		}
+
+		add(node) {
+			if(this.head) {
+				this.head.setNextElement(node);
+				node.setPreviousElement(this.head);
+			} else {
+				this.tail = node;
+			}
+			this.head = node;
+		}
+
+		getTail() {
+			return this.tail;
+		}
+
+		getHead() {
+			return this.head;
+		}
+
+		forEach(forEachCallBack) {
+			let node = this.getTail();
+			while(node) {
+				forEachCallBack(node);
+				node = node.getNextElement();
+			}
+		}
+
+		filter(filterCallBack) {
+			let filteredElements = new LinkedList();
+			this.forEach(v => {
+				if(filterCallBack(v.value)) {
+					filteredElements.add(new Node(v.value));
+				}
+			});
+
+			return filteredElements;
+		}
+	}
+
+	class Node {
+		
+		constructor(value, prev = null, next = null) {
+			this.value = value;
+			this.prev = prev;
+			this.next = next;
+		}
+
+		setPreviousElement(prevNode) {
+			this.prev = prevNode;
+		}
+
+		getPreviousElement() {
+			return this.prev;
+		}
+
+		setNextElement(nextNode) {
+			this.next = nextNode;
+		}
+
+		getNextElement() {
+			return this.next;
+		}
+	}
+
+	(() => {
+		console.log("Test");
+		
+		let linkedList = new LinkedList();
+		linkedList.add(new Node(1));
+		linkedList.add(new Node(1.1));
+		linkedList.add(new Node(2));
+		linkedList.add(new Node(3));
+		linkedList.add(new Node(4));
+		linkedList.add(new Node(4.1));
+		linkedList.add(new Node(5));
+		linkedList.add(new Node(6));
+		
+		console.log(linkedList);
+
+		console.log("Head");
+		console.log(linkedList.getHead());
+		console.log(linkedList.getHead().getPreviousElement());
+		
+		console.log("Tail");
+		console.log(linkedList.getTail());
+		console.log(linkedList.getTail().getNextElement());
+
+		console.log("foreach");
+		linkedList.forEach(val => console.log(val));
+
+		console.log("filter");
+		let regex = /1/;
+		let filteredLinkedList = linkedList.filter(val => regex.test(val));
+		filteredLinkedList.forEach(val => console.log(val));
+
+	})();
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		let palindrome = (word) =>  word.split('').reverse().join('') === word;
+
+		let anagram = (wordOne, wordTwo) => {
+			
+			const arr = wordTwo.toLowerCase().split('');
+
+			wordOne.toLowerCase().split('').forEach((i) => {
+				arr.forEach((j, index) => {
+					if (i === j) {
+						arr.splice(index, 1);
+					}
+				});
+
+			});
+
+			return arr.length === 0;
+		}
+
+		let findTheVowels = (word) => {
+			let vowelsSum = 0;
+			word.toLowerCase().split('').forEach(letter => 
+				['a', 'o', 'u', 'e', 'i'].filter(i => i === letter).length > 0 ? vowelsSum++ : null);
+
+			return vowelsSum;
+		}
+
+		console.log(findTheVowels('Friend'));
+	</script>
+	
+</body>
+</html>

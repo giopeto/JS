@@ -1,0 +1,16 @@
+<html>
+<div>
+	<span>asd</span>
+	<span>22</span>
+</div>
+</html>
+<script type="text/javascript">
+	let traverseDom = (ele, callback) => {
+		//callback(ele);
+		console.log(ele.children);
+	}
+
+
+	traverseDom(document.getElementsByTagName("div"),
+		(ele) => console.log(ele));
+</script>

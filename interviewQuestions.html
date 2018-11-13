@@ -1,0 +1,54 @@
+<script type="text/javascript">
+	/* https://www.toptal.com/javascript/interview-questions */
+	var arr1 = "john".split('');
+	console.log(arr1);
+	var arr2 = arr1.reverse();
+	var arr3 = "jones".split('');
+	arr2.push(arr3);
+	console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(-1));
+	console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1));
+
+	/* 2 */
+	console.log(1 +  "2" + "2");
+	console.log(1 +  +"2" + "2");
+	console.log(1 +  -"1" + "2");
+	console.log(+"1" +  "1" + "2");
+	console.log( "A" - "B" + "2");
+	console.log( "A" - "B" + 2);
+
+	/* 3 console dir closure */
+	let outer = (() => {
+		let x = 1;
+		let inner = () => {console.log(x)};
+		return inner;
+	})();
+
+	console.dir(outer);
+
+	/* 4 */
+	for (var i = 0; i < 5; i++) {
+		setTimeout(function() { console.log(i); }, i * 1000 );
+		// ((i) => setTimeout(function() { console.log(i); }, i * 1000 ))(i); // Or switch var with let when declaring i
+	}
+
+	/* 5 */
+	console.log("0 || 1 = "+(0 || 1));
+	console.log("1 || 2 = "+(1 || 2));
+	console.log("0 && 1 = "+(0 && 1));
+	console.log("1 && 2 = "+(1 && 2));
+
+	/* 6 */
+	var hero = {
+    _name: 'John Doe',
+    getSecretIdentity: function (){
+        return this._name;
+    }
+};
+
+var stoleSecretIdentity = hero.getSecretIdentity;
+
+console.log(stoleSecretIdentity());
+console.log(hero.getSecretIdentity());
+var bindStoleSecretIdentity = hero.getSecretIdentity.bind(hero);
+console.log(bindStoleSecretIdentity());
+</script>

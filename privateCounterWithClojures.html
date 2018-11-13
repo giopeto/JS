@@ -1,0 +1,39 @@
+<script type="text/javascript">
+
+let counter = () => {
+	let counter = 0;
+	return {
+		add: x => counter += x,
+		retrieve: () => console.log(counter)
+	}
+ }
+
+var c = counter();
+c.add(5); 
+c.add(9); 
+
+// now we can access the private variable in the following way
+c.retrieve(); // => The counter is currently at: 14
+
+
+
+/* Second */
+/*
+Write a sum method which will work properly when invoked using either syntax below.
+console.log(sum(2,3));   // Outputs 5
+console.log(sum(2)(3));  // Outputs 5
+*/
+
+
+
+let sum = (x, y = null) => {
+	if (y === null) {
+		return z => x + z;
+	} else {
+		return x + y;
+	}
+}
+
+console.log(sum(2,3));   // Outputs 5
+console.log(sum(2)(3));  // Outputs 5
+</script>

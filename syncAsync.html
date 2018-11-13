@@ -1,0 +1,18 @@
+<button id="getMovies">Get movies</button>
+<script type="text/javascript">
+
+	function getMovies() {
+		var request = new XMLHttpRequest();
+		request.open('GET', 'https://ghibliapi.herokuapp.com/species', false);
+		request.onload = function () {
+			console.log(JSON.parse(request.responseText));
+		}
+		request.send();
+		var data = request.responseText;
+		console.log('AAA', data);
+	}
+
+
+	document.getElementById('getMovies').addEventListener('click', () => getMovies());
+
+</script>

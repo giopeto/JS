@@ -1,0 +1,27 @@
+<script type="text/javascript">
+function test(){
+	var a = b = 3;
+};
+
+test();
+
+console.log("a defined? " + (typeof a !== 'undefined'));
+console.log("b defined? " + (typeof b !== 'undefined'));
+
+
+
+function test1(){
+	x = 11;
+};
+test1();
+console.log(x); // x is defined in global scope
+
+
+function test2(){ 
+	var y = 1; // y is defined in local scope
+};
+test2();
+
+console.log(y); //Uncaught ReferenceError: y is not defined
+
+</script>
